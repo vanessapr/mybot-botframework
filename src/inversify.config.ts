@@ -1,0 +1,34 @@
+import { Container } from 'inversify';
+import TYPES from './types';
+import { IEnvironmentConfig, Config } from './config';
+import IMessageUseCase from './use_cases/IMessageUseCase';
+import MessageUseCase from './use_cases/MessageUseCase';
+import IBot from './infrastructure/bot/IBot';
+import Bot from './infrastructure/bot/Bot';
+import IQnAMakerService from './services/IQnAMakerService';
+import QnAMakerService from './services/QnAMakerService';
+import ILuisIAService from './services/ILuisIAService';
+import LuisIAService from './services/LuisIAService';
+import { IDatabase, Database } from './repositories/configuration';
+import ILeadUserRepository from './repositories/ILeadUserRepository';
+import LeadUserRepository from './repositories/LeadUserRepository';
+import ILeadUserUseCase from './use_cases/ILeadUserUseCase';
+import LeadUserUseCase from './use_cases/LeadUserUseCase';
+import IQuestionsUseCase from './use_cases/QuestionsUseCase';
+import QuestionsUseCase from './use_cases/QuestionsUseCase';
+import ICareerUseCase from './use_cases/ICareerUseCase';
+import CareerUseCase from './use_cases/CareerUseCase';
+
+const container = new Container();
+container.bind<IEnvironmentConfig>(TYPES.IEnvironmentConfig).to(Config);
+container.bind<IMessageUseCase>(TYPES.IMessageUseCase).to(MessageUseCase);
+container.bind<IBot>(TYPES.IBot).to(Bot).inSingletonScope();
+container.bind<IQnAMakerService>(TYPES.IQnAMakerService).to(QnAMakerService);
+container.bind<ILuisIAService>(TYPES.ILuisIAService).to(LuisIAService);
+container.bind<IDatabase>(TYPES.IDatabase).to(Database).inSingletonScope();
+container.bind<ILeadUserRepository>(TYPES.ILeadUserRepository).to(LeadUserRepository).inSingletonScope();
+container.bind<ILeadUserUseCase>(TYPES.ILeadUserUseCase).to(LeadUserUseCase);
+container.bind<IQuestionsUseCase>(TYPES.IQuestionsUseCase).to(QuestionsUseCase);
+container.bind<ICareerUseCase>(TYPES.ICareerUseCase).to(CareerUseCase);
+
+export { container };

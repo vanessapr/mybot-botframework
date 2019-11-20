@@ -1,0 +1,26 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "no-console": [true, "log"],
+        "quotemark": [true, "single"],
+        "interface-name": [true, "always-prefix"],
+        "ordered-imports": false,
+        "member-ordering": [true, { "order": [
+            "private-static-field",
+            "public-static-field",
+            "private-instance-field",
+            "public-instance-field",
+            "public-constructor",
+            "private-constructor",
+            "private-instance-method",
+            "protected-instance-method",
+            "public-instance-method"
+        ] }],
+        "variable-name": [true, "check-format", "allow-leading-underscore"]
+    },
+    "rulesDirectory": []
+}

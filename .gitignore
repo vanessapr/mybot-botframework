@@ -1,0 +1,14 @@
+.DS_Store
+npm-debug.log
+yarn-error.log
+.env
+.python-version
+.vscode/
+node_modules/
+dist/
+package-lock.json
+resources/
+src/infrastructure/bot/dialogs/RegisterEmailUserDialog.ts
+mybot.bot
+demo*
+*docker*
